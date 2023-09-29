@@ -1,0 +1,105 @@
+{% load static nav_tags %}
+{% get_services_menu as services_menu %}
+
+<!-- Прелоадер -->
+<div class="preloader">
+  <div class="loader"></div>
+</div>
+<div class="nav_item">
+  <ul class=>
+    <li><a class="smooth-scroll" href="#contacts">Контакты</a></li>
+  </ul>
+</div>
+<header>
+  <div class="container">
+    <div class="header-left_side">
+      <div class="header_logo"><a href="/">
+          <!-- <object data="/images/header/logo.svg" type="image/svg+xml">
+              </object> -->
+
+          <img class="big_logo" src="{% static 'home/images/header/logo.png' %}" width="422" alt="">
+          <img class="small_logo" src="{% static 'home/images/header/small_logo.png' %}" alt="">
+        </a>
+      </div>
+      <nav class="navbar-left_side">
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </nav>
+      <div class="header_buttons">
+        <a class="hamburger" href="#">Меню</a>
+      </div>
+    </div>
+    <div class="header-right_side">
+      <div class="header_buttons">
+        <a class="smooth-scroll" href="#contacts">Контакты</a>
+      </div>
+      <button class="header-call_button popup_start">
+        Заказать звонок
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0_518_2864)">
+            <path
+              d="M18.0404 13.6386L15.2125 13.3157C14.88 13.2766 14.5429 13.3135 14.2267 13.4234C13.9104 13.5333 13.6232 13.7134 13.3866 13.9503L11.338 15.9989C8.17742 14.3914 5.60846 11.8225 4.00102 8.66188L6.06072 6.60218C6.53947 6.12344 6.77327 5.45543 6.69534 4.77628L6.37246 1.97064C6.30934 1.42751 6.04869 0.926573 5.64014 0.563188C5.23159 0.199802 4.70367 -0.000648255 4.15689 1.57505e-06H2.23079C0.972706 1.57505e-06 -0.0738448 1.04655 0.00408987 2.30464C0.594166 11.8127 8.19836 19.4057 17.6953 19.9958C18.9533 20.0737 19.9999 19.0272 19.9999 17.7691V15.843C20.011 14.7185 19.1649 13.7722 18.0404 13.6386Z"
+              fill="#1B1C1E" />
+          </g>
+          <defs>
+            <clipPath id="clip0_518_2864">
+              <rect width="20" height="20" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+
+      </button>
+      <nav class="navbar">
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <div id="header_full_menu">
+    <div class="container">
+
+      <div class="left_side">
+        <div class="wrapper">
+
+          <p class="header_full_menu_title-left">Категории услуг</p>
+          <ul class="header_categories">
+              {% for category, childrens in services_menu.items %}
+                  <li class="header_category{% if forloop.first %} chosen{% endif %}" data-category = "{{ category.slug }}">{{ category }}</li>
+              {% endfor %}
+          </ul>
+          <div class="dividers_block" style="display: flex; gap: 10px; margin-bottom: 30px;">
+            <div class="divider" style="width: 40%;"></div>
+            <img src="{% static 'home/images/team/pointer.svg' %}" alt="">
+            <div class="divider" style="width: 60%;"></div>
+          </div>
+          {% for category, childrens in services_menu.items %}
+          <div class="services_from_category {% if forloop.first %} active {% endif %}" data-services="{{ category.slug }}">
+  
+            <p class="header_full_menu_title-left">{{category}}</p>
+            
+            <ul class="header_categories">
+              {% for child in childrens %}
+              <li class="header_category">{{ child }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+            {% endfor %}
+        </div>
+          
+
+
+      </div>
+      <div class="right_side">
+        <p class="header_full_menu_title-right">Воспользуйтесь поиском</p>
+        <input type="text" placeholder="Введите название...">
+
+      </div>
+    </div>
+  </div>
+</header>

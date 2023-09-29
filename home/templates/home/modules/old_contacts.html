@@ -1,0 +1,50 @@
+{%load static snippets_tags%}
+{% get_contact_info as contact_info %}
+<section id="contacts">
+    <div class="contacts_container">
+      <img class="contacts_column" src="{% static 'home/images/contacts/column.png' %}" alt="">
+      <div class="contacts_white">
+        <div class="contacts_feedback">
+          <h1>Контакты</h1>
+          <div class="contacts_feedback-row">
+            <div class="contacts_feedback-form">
+              <input type="tel" name="phone_number" class="tel" placeholder="Ваш номер">
+              <button class="contacts_feedback-form-button send_info popup_start" type="submit">Перезвонить мне</button>
+
+            </div>
+            <div class="contacts_feedback-phones">
+              <h1>{{ contact_info.main_phone_number }}</h1>
+              <h2>{{contact_info.email}}</h2>
+            </div>
+          </div>
+          <div class="contacts_icons">
+            <a href="{{contact_info.telegram_link}}" target="_blank"><img src="{% static 'home/images/contacts/icomoon-free_telegram.svg' %}" alt=""></a>
+            <a href="{{contact_info.whatsapp_link}}" target="_blank"><img src="{% static 'home/images/contacts/icomoon-free_whatsapp.svg' %}" alt=""></a>
+            <a href="mailto:{{contact_info.email}}"><img src="{% static 'home/images/contacts/icomoon-free_mail4.svg' %}" alt=""></a>
+            
+          </div>
+        </div>
+      </div>
+      <div class="contacts_black">
+        <div class="contacts-adress">
+          <h2>Наш офис</h2>
+          <p>Санкт-Петербург, Московский пр. 109 офис 458</p>
+        </div>
+        <div class="contacts_worktime">
+          <h2>Часы работы</h2>
+          <div class="contacts_worktime-row">
+            <h3>Пн-Пт</h3>
+            <h3>круглосуточно</h3>
+          </div>
+          <div class="contacts_worktime-row">
+            <h3>Сб-Вс</h3>
+            <h3>с 11:00 до 18:00</h3>
+          </div>
+        </div>
+        <div class="contacts_black-img">
+          <script type="text/javascript" charset="utf-8" async
+            src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A22c9a37b2cba37702828572762bdc5e48536a1b2c928afadbf58707b4d54fe8c&amp;width=100%25&amp;height=380&amp;lang=ru_RU&amp;scroll=true"></script>
+        </div>
+      </div>
+    </div>
+  </section>

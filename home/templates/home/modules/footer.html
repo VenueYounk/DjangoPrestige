@@ -1,0 +1,30 @@
+{%load static snippets_tags%}
+{% get_contact_info as contact_info %}
+<footer>
+    <div class="footer_container">
+      <h1>Навигация и поиск</h1>
+      <ul>
+        <li><a class="smooth-scroll" href="header">Главная</a></li>
+        <!-- <li><a href="">Блог</a></li> -->
+        <li><a class="smooth-scroll" href="#contacts">Контакты</a></li>
+        <!-- <li><a href="">Дела</a></li> -->
+        <li><a class="smooth-scroll" href="#team_cards">Адвокаты</a></li>
+      </ul>
+      <div class="footer_contacts">
+        <div class="footer_contacts-social">
+          <a href="mailto:{{ contact_info.email }}"><img src="{% static 'home/images/footer/icomoon-free_mail4.svg' %}" alt=""></a>
+          <a href="{{contact_info.telegram_link}}" target="_blank"><img src="{% static 'home/images/footer/icomoon-free_telegram.svg' %}" alt=""></a>
+          <a href="{{contact_info.whatsapp_link}}" target="_blank"><img src="{% static 'home/images/footer/icomoon-free_whatsapp.svg' %}" alt=""></a>
+          <a href="{{contact_info.vk_link}}" target="_blank"><img src="{% static 'home/images/footer/vk_icon.svg' %}" alt=""></a>
+        </div>
+        <h2>{{ contact_info.main_phone_number }}</h2>
+        <p>{{ contact_info.email }}</p>
+      </div>
+      <div class="footer_credentials">
+        <p style="text-decoration: none;">©Престиж</p>
+        <p>Политика конфиденциальности</p>
+        <p>Пользовательское соглашение</p>
+
+      </div>
+    </div>
+  </footer>

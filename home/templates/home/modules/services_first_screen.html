@@ -1,0 +1,22 @@
+{% load static %}
+
+<section id="services_first_screen">
+    <div class="container">
+        <h1>{{ page.subtitle}}</h1>
+        <p>{{ page.subtitle_second}}</p>
+        <div class="services_contact_banner">
+            <h3>Получите консультацию прямо сейчас. <br>Это бесплатно!</h3>
+            <input type="tel" name="phone_number" class="tel" name="phone_number" placeholder="Ваш номер">
+            <div class="services_contact_banner-actions">
+              <button class="services_contact_banner-button send_info popup_start" type="submit">Перезвонить мне</button>
+              <!-- <a href="#" class="contact_banner-button">Перезвонить мне</a> -->
+              <div class="services_contact_banner-actions-icons">
+                <a href="{{contact_info.telegram_link}}" target="_blank"><img src="{% static 'home/images/footer/icomoon-free_telegram.svg' %}" alt=""></a>
+                <a href="{{contact_info.whatsapp_link}}" target="_blank"><img src="{% static 'home/images/footer/icomoon-free_whatsapp.svg' %}" alt=""></a>
+                <a href="{{contact_info.vk_link}}" target="_blank"><img src="{% static 'home/images/footer/vk_icon.svg' %}" alt=""></a>
+  
+              </div>
+            </div>
+    </div>
+
+</section>

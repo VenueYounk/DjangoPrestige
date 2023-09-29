@@ -1,0 +1,47 @@
+{%load static snippets_tags%}
+{% get_contact_info as contact_info %}
+
+<section id="contacts">
+  <div class="container">
+    <p class="contacts_header">Контакты</p>
+    <div class="contacts_wrapper">
+      <div class="contacts_wrapper-text">
+
+        <div class="contacts_adress">
+          <p class="contacts_small_header">Наш офис</p>
+          <p>{{ contact_info.adress }}</p>
+          <p>{{ contact_info.main_phone_number }}</p>
+        </div>
+        <div class="contacts_worktime">
+          <p class="contacts_small_header">
+            Часы работы
+          </p>
+          <div class="contacts_worktime-grid">
+            <p>Пн-Пт</p>
+            <p>круглосуточно</p>
+            <p>Сб-Вс</p>
+            <p>с 11:00 до 18:00</p>
+          </div>
+        </div>
+        <div class="contacts_socia-media">
+          <a href="mailto:{{contact_info.email}}"><img src="{% static 'home/images/contacts/email_ico.svg' %}"
+              alt=""></a>
+          <a href="{{contact_info.telegram_link}}" target="_blank"><img
+              src="{% static 'home/images/contacts/telegram_ico.svg' %}" alt=""></a>
+          <a href="{{contact_info.whatsapp_link}}" target="_blank"><img
+              src="{% static 'home/images/contacts/whatsapp_ico.svg' %}" alt=""></a>
+          <a href="{{contact_info.vk_link}}" target="_blank"><img src="{% static 'home/images/contacts/vk_ico.svg' %}"
+              alt=""></a>
+        </div>
+      </div>
+      <div class="contacts_wrapper-map">
+        <script type="text/javascript" charset="utf-8" async
+          src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A22c9a37b2cba37702828572762bdc5e48536a1b2c928afadbf58707b4d54fe8c&amp;width=100%25&amp;height=540&amp;lang=ru_RU&amp;scroll=true"></script>
+
+
+
+      </div>
+    </div>
+  </div>
+
+</section>
