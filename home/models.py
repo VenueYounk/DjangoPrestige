@@ -2,9 +2,10 @@ import os
 from .utils import helper
 
 from django.db import models
+from django import forms
 
 from wagtail.models import Page
-from wagtail.admin.panels import FieldPanel
+from wagtail.admin.panels import FieldPanel, InlinePanel, PageChooserPanel
 from wagtail.fields import StreamField, RichTextField
 from wagtail.blocks import RichTextBlock, StreamBlock
 from wagtail.images.blocks import ImageChooserBlock
@@ -14,6 +15,7 @@ from .blocks import ImageWithCaption, ListBullet
 from bs4 import BeautifulSoup
 from transliterate import translit
 import re
+from modelcluster.fields import ParentalKey, ParentalManyToManyField
 
 
 for snippets in helper.get_all_snippets(os.path.dirname(__file__)):
@@ -31,7 +33,10 @@ class HomePage(Page):
         FieldPanel("about_college"),
     ]
     max_count = 1
-    subpage_types = ["home.Services"]
+    subpage_types = ["home.Services", "home.TestPage", "home.Lawyers"]
+
+
+# Модели связанные с услугами
 
 
 class ServicesCategory(Page):
@@ -136,3 +141,87 @@ class ServicesPage(Page):
 
         # Call the parent save method again to save the updated content
         super().save(*args, **kwargs)
+
+
+# Модель связывающая адвокатов с делами
+
+
+# class LawyerServicesCategoryRelationship(models.Model):
+#     lawyer = ParentalKey("home.Lawyer", on_delete=models.CASCADE, related_name="lawyer")
+#     services_category = ParentalKey(
+#         "home.ServicesCategory",
+#         on_delete=models.CASCADE,
+#         related_name="services_category",
+#     )
+
+#     class Meta:
+#         unique_together = ("lawyer", "services_category")
+
+
+# Модели связанные с адвокатами
+
+
+class Lawyers(Page):
+    class Meta:
+        verbose_name = "Адвокаты"
+        verbose_name_plural = "Адвокатыг"
+
+    max_count = 1
+    subpage_types = ["home.Lawyer"]
+
+
+class Lawyer(Page):
+    role = models.CharField(
+        max_length=70, verbose_name="Должность", blank=False, null=False
+    )
+
+    lawyer_image = models.ForeignKey(
+        "wagtailimages.Image",
+        null=True,
+        blank=False,
+        on_delete=models.SET_NULL,
+        related_name="+",
+    )
+
+    tags = ParentalManyToManyField("home.ServicesCategory", blank=True)
+
+    short_description = RichTextField(
+        features=["h2", "bold", "italic"],
+        blank=True,
+        null=True,
+        help_text="Текст в карточках",
+    )
+
+    content = StreamField(
+        [
+            (
+                "text",
+                RichTextBlock(
+                    features=["h2", "bold", "italic"],
+                    label="Текст",
+                    help_text="Основной контент",
+                ),
+            )
+        ],
+        use_json_field=True,
+        default={},
+        verbose_name="Контент страницы",
+    )
+
+    content_panels = Page.content_panels + [
+        FieldPanel("role"),
+        FieldPanel("lawyer_image"),
+        FieldPanel("tags", widget=forms.CheckboxSelectMultiple),
+        FieldPanel("short_description"),
+        FieldPanel("content"),
+    ]
+
+    class Meta:
+        verbose_name = "Адвокат"
+        verbose_name_plural = "Адвокаты"
+
+    parent_page_types = ["home.Lawyers"]
+
+
+class TestPage(Page):
+    pass

@@ -7,7 +7,7 @@ window.addEventListener('load', function() {
     // Устанавливаем таймер для скрытия прелоадера после заданной продолжительности
     setTimeout(function() {
         preloader.classList.add('hidden');
-        document.documentElement.style.overflow = 'visible';
+        document.documentElement.style.overflowY = 'overlay';
 
 
     }, minimumPreloaderDuration);

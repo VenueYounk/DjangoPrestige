@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body_class %}
+  test_zone
+{% endblock %}
+
+{% block extra_css %}
+
+{% endblock %}
+
+{% block content %}
+  <label for="search" class="form_label">ПОИСК</label>
+  <input type="text" id="search" class="form_contol" placeholder="Введите название услуги" name="q" hx-get="{% url 'search-service' %}" hx-trigger="keyup changed delay:150ms" hx-target="#search-results" />
+
+  <div id='search-results'>
+     {% include "home/search_results.html" %}
+
+  </div>
+
+
+{% endblock %}
+
+{% block extra_js %}
+  <script src="https://unpkg.com/htmx.org@1.9.6" integrity="sha384-FhXw7b6AlE/jyjlZH5iHa/tTe9EpJ1Y55RjcgPbjeWMskSxZt1v9qkxLJWNJaGni" crossorigin="anonymous"></script>
+{% endblock %}

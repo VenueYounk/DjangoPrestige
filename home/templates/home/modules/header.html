@@ -14,22 +14,25 @@
   <div class="container">
     <div class="header-left_side">
       <div class="header_logo"><a href="/">
-          <!-- <object data="/images/header/logo.svg" type="image/svg+xml">
-              </object> -->
-
           <img class="big_logo" src="{% static 'home/images/header/logo.png' %}" width="422" alt="">
           <img class="small_logo" src="{% static 'home/images/header/small_logo.png' %}" alt="">
         </a>
       </div>
       <nav class="navbar-left_side">
-        <div class="hamburger">
+        <div class="hamburger full_menu">
           <span class="bar"></span>
           <span class="bar"></span>
           <span class="bar"></span>
         </div>
       </nav>
-      <div class="header_buttons">
-        <a class="hamburger" href="#">Меню</a>
+      <div class="header_buttons full_menu">
+        <div class="small_hamburger">
+          <span class="small_bar"></span>
+          <span class="small_bar"></span>
+          <span class="small_bar"></span>
+
+        </div>
+        <a class= href="#">Меню</a>
       </div>
     </div>
     <div class="header-right_side">
@@ -52,7 +55,7 @@
         </svg>
 
       </button>
-      <nav class="navbar">
+      <nav class="navbar full_menu">
         <div class="hamburger">
           <span class="bar"></span>
           <span class="bar"></span>
@@ -68,9 +71,9 @@
         <div class="wrapper">
 
           <p class="header_full_menu_title-left">Категории услуг</p>
-          <ul class="header_categories">
+          <ul class="header_grid">
               {% for category, childrens in services_menu.items %}
-                  <li class="header_category{% if forloop.first %} chosen{% endif %}" data-category = "{{ category.slug }}">{{ category }}</li>
+                  <li class="grid_element header_category{% if forloop.first %} chosen{% endif %}" data-category = "{{ category.slug }}">{{ category }}</li>
               {% endfor %}
           </ul>
           <div class="dividers_block" style="display: flex; gap: 10px; margin-bottom: 30px;">
@@ -83,9 +86,9 @@
   
             <p class="header_full_menu_title-left">{{category}}</p>
             
-            <ul class="header_categories">
+            <ul class="header_grid">
               {% for child in childrens %}
-              <li class="header_category">{{ child }}</li>
+              <li class="grid_element"><a href="{{ child.url }}">{{ child }}</a></li>
               {% endfor %}
             </ul>
           </div>
