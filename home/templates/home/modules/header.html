@@ -100,7 +100,12 @@
       </div>
       <div class="right_side">
         <p class="header_full_menu_title-right">Воспользуйтесь поиском</p>
-        <input type="text" placeholder="Введите название...">
+        {% comment %} <input type="text" placeholder="Введите название..."> {% endcomment %}
+        <input type="text" id="search_header" placeholder="Введите название..." name="q" hx-get="{% url 'search-lawyer-and-services' %}" hx-trigger="keyup changed delay:150ms" hx-target="#header_search_result" />
+        <div id="header_search_result">
+          {% include "home/modules/services_search_results.html" %}
+          
+        </div>
 
       </div>
     </div>

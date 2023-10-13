@@ -174,6 +174,17 @@ class Lawyer(Page):
     role = models.CharField(
         max_length=70, verbose_name="Должность", blank=False, null=False
     )
+    reg_num = models.CharField(
+        max_length=70, verbose_name="Регистрационный номер", blank=False, null=False
+    )
+    experience = models.CharField(
+        max_length=70, verbose_name="Опыт работы", blank=False, null=False
+    )
+
+    is_first_page = models.BooleanField(
+        default=False,
+        verbose_name="Выводить на главную страницу",
+    )
 
     lawyer_image = models.ForeignKey(
         "wagtailimages.Image",
@@ -209,7 +220,10 @@ class Lawyer(Page):
     )
 
     content_panels = Page.content_panels + [
+        FieldPanel("is_first_page"),
         FieldPanel("role"),
+        FieldPanel("experience"),
+        FieldPanel("reg_num"),
         FieldPanel("lawyer_image"),
         FieldPanel("tags", widget=forms.CheckboxSelectMultiple),
         FieldPanel("short_description"),

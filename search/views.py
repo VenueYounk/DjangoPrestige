@@ -3,7 +3,7 @@ from django.template.response import TemplateResponse
 
 from wagtail.models import Page
 from wagtail.search.models import Query
-from home.models import ServicesPage
+from home.models import ServicesPage, Lawyer
 
 
 def search(request):
@@ -41,9 +41,23 @@ def search(request):
 
 def search_service(request):
     q = request.GET.get("q") if request.GET.get("q") else ""
-    services = ServicesPage.objects.live().filter(title__icontains=q)[:12]
-    return TemplateResponse(
-        request,
-        "home/modules/services_search_results.html",
-        {"pages": services},
-    )
+    if q != "":
+        services = ServicesPage.objects.live().filter(title__icontains=q)[:12]
+        return TemplateResponse(
+            request,
+            "home/modules/services_search_results.html",
+            {"pages": services},
+        )
+
+
+def search_lawyer_and_services(request):
+    q = request.GET.get("q") if request.GET.get("q") else ""
+    if q != "":
+        lawyers = Lawyer.objects.live().filter(title__icontains=q)
+        services = ServicesPage.objects.live().filter(title__icontains=q)
+        result = lawyers.union(services).order_by("title")
+        return TemplateResponse(
+            request,
+            "home/modules/lawyer_and_services_search_results.html",
+            {"pages": result},
+        )

@@ -1,33 +1,31 @@
 {% load static %}
+{% load wagtailimages_tags %}
+{% load team_tags %}
+{% get_team page as team %}
+
 
 <section id="team_block">
 <section id="team">
     <div class="team_header-container">
       <h1>Команда</h1>
     </div>
+
   </section>
 
 
   <section id="team_cards"> 
     <div class="scroll-container">
+
+      {% for lawyer in team %}
       <div class="card">
         <div class="card_employee-img">
-          <img class="card_employee-img" src="{% static 'home/images/team/persons/kultanova.png' %}" alt="">
+          {% image lawyer.lawyer_image fill-310x413%}
         </div>
         <div class="card_employee-about">
           <div class="card_employee-text">
-            <h2>Култанова Зинаида Ивановна</h2>
-            <h3>Руководитель коллегии.<br></h3>
-            <p>Адвокат по гражданским и уголовным делам</p>
-            <p>Ведение уголовных дел различной категории (преступлений в сфере экономики и общеуголовной направленности);
-              <br>- наследственные дела;
-              <br>- медицинские  дела;
-              <br>- арбитраж и др. 
-              <br>Многолетний опыт и глубокие знания законодательства 
-              позволяют мне находить уникальные решения даже в самых запутанных делах.
-              Я ценю доверие своих клиентов (доверителей) , гарантирую профессионализм,
-              индивидуальный подход и конфиденциальность в каждой конкретной ситуации.</p>
-
+            <h2>{{lawyer.title}}</h2>
+            <h3>{{lawyer.role}}</h3>
+            <p>{{lawyer.short_description | safe}}</p>
           </div>
           <div class="card_employee-accordion">
             Развернуть
@@ -36,10 +34,19 @@
             </div>
           </div>
           <div class="card_employee-buttons">
-            <button class="card_employee-button-info">Подробнее</button>
+            <button onclick="window.location.href='{{lawyer.url}}'" class="card_employee-button-info">Подробнее</button>
             <button class="card_employee-button-request">Записаться</button>
           </div>
         </div>
+
+      </div>
+      {% endfor %}
+
+      {% comment %} <div class="card">
+        <div class="card_employee-img">
+          <img class="card_employee-img" src="{% static 'home/images/team/persons/kultanova.png' %}" alt="">
+        </div>
+       
       </div>
       <div class="card">
         <div class="card_employee-img">
@@ -131,7 +138,7 @@
               <button class="card_employee-button-request">Записаться</button>
             </div>
         </div>
-      </div>
+      </div> {% endcomment %}
       <!-- Добавьте больше карточек по необходимости -->
     </div>
   </section>

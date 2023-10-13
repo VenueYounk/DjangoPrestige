@@ -27,6 +27,11 @@ if settings.DEBUG:
 
 urlpatterns = urlpatterns + [
     path("search-service", search_views.search_service, name="search-service"),
+    path(
+        "search-lawyer-and-services",
+        search_views.search_lawyer_and_services,
+        name="search-lawyer-and-services",
+    ),
     # For anything not caught by a more specific rule above, hand over to
     # Wagtail's page serving mechanism. This should be the last pattern in
     # the list:
