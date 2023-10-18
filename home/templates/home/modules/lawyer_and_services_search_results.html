@@ -1,3 +1,9 @@
-{% for page in pages  %}
-<li><a href="{{page.url}}">{{page}}</a></li>
-{% endfor %}
+{% if pages %}
+<div class="header_search_result">
+    {% for page in pages  %}
+    <li><a href="{{page.url}}">{{page}}</a></li>
+    {% endfor %}
+</div>
+{% endif %}
+
+

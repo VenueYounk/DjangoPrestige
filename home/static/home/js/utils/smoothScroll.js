@@ -1,7 +1,8 @@
+const full_menu = document.getElementById('header_full_menu')
+
 // Функция для плавной прокрутки к элементу
 function smoothScroll(target) {
     const element = document.querySelector(target);
-    console.log(element)
     if (element) {
         window.scrollTo({
             top: element.offsetTop,
@@ -16,9 +17,14 @@ navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
         e.preventDefault(); // Предотвращаем стандартное поведение ссылки
         const targetId = link.getAttribute('href'); // Получаем цель ссылки (например, "#section1")
+        document.documentElement.classList.remove("html_block")
+        full_menu.classList.remove("opened")
         smoothScroll(targetId); // Вызываем функцию плавной прокрутки
     });
 });
+
+
+ 
 
 
 

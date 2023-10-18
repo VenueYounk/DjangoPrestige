@@ -10,6 +10,8 @@ def get_team(page: Page):
     if page.__class__.__name__ == "ServicesPage":
         category = page.get_parent()
         lawyers = Lawyer.objects.filter(tags=category)
-        return lawyers
+
+        return {"lawyers": lawyers, "label": "Специалисты в этой области"}
     else:
-        return Lawyer.objects.filter(is_first_page=True)
+        lawyers = Lawyer.objects.filter(is_first_page=True)
+        return {"lawyers": lawyers, "label": "Команда"}

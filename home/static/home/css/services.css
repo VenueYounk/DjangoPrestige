@@ -17,7 +17,7 @@
     content: "";
     position: fixed;
     background-image: url(../images/services_pages/man.png), url(../images/services_pages/woman.png);
-    background-size: 25% , 25%;
+    background-size: 500px  ;
     background-position: 90% 100%, 10% 100% ;
     background-repeat: no-repeat;
     width: 100%;
@@ -32,16 +32,17 @@
     background: rgba(27, 28, 30, 0.70);
     box-shadow: 0px -4px 20px 0px rgba(191, 205, 224, 0.10);
     backdrop-filter: blur(60px);
+    -webkit-backdrop-filter: blur(60px);
 }
 
 #services_nav .container {
     display: flex;
+    box-sizing: border-box;
     justify-content: center;
-    flex-wrap: wrap;
     width: 100%;
     max-width: 1366px;
     gap: 20px;
-    padding: 140px 0;
+    padding: 140px 20px;
 }
 
 
@@ -53,8 +54,8 @@
     border-radius: 6px;
     background: linear-gradient(0deg, rgba(175, 175, 175, 0.23) 0%, rgba(175, 175, 175, 0.23) 100%), rgba(0, 0, 0, 0.40);
     backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
     box-sizing: border-box;
-    max-height: 500px;
     height: 100%;
 }
 
@@ -123,7 +124,6 @@
     display: flex;
     width: 100%;
     max-width: 640px;
-    height: 270px;
     padding: 40px 50px;
     flex-direction: column;
     justify-content: center;
@@ -132,6 +132,7 @@
     border-radius: 6px;
     background: var(--Aque-blue, #BFCDE0);
     backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
 }
 
 #services_nav .service_feedback_big-header {
@@ -160,7 +161,8 @@
 }
 
 #services_nav .service_feedback_block button {
-    width: 250px;
+    max-width: 250px;
+    width: 100%;
     padding: 14px 30px;
     border-radius: 2px;
     background: var(--Blue, #3D539E);
@@ -195,6 +197,7 @@
     border-radius: 6px;
     background: var(--Green, #5F7367);
     backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
 }
 
 #services_nav .service_nav_panel p {
@@ -305,6 +308,7 @@
     box-sizing: border-box;
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.10) 0%, rgba(0, 0, 0, 0.10) 100%), rgba(254, 252, 253, 0.15);
     backdrop-filter: blur(18.5px);
+    -webkit-backdrop-filter: blur(18.5px);
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -435,6 +439,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    padding-bottom: 60px;
 
 }
 
@@ -564,12 +569,24 @@
 
 @media screen and (max-width: 1366px) {
 
+    .blur_background::after {
+        background-position: 120% 100%, -1000px -1000px;
+    }
+    #services_first_screen .container {
+        align-items: unset;
+        padding-left: 20px;
+    }
+    #services_first_screen .container p {
+        text-align: unset;
+    }
+    #services_first_screen h1 {
+        text-align: unset;
+
+    }
     .services_contact_banner {
         box-sizing: border-box;
         margin-right: 30px;
         margin-top: 70px;
-        padding: 40px 24px;
-        max-width: 470px;
     }
 
 
@@ -583,16 +600,37 @@
         margin-right: 0;
     }
 
+    #services_first_screen h1 {
+        text-align: center;
+    }
+    #services_first_screen .container p {
+        text-align: center;
+    }
 
+    #services_first_screen .container {
+        align-items: center;
+        padding-left: 20px;
+        padding-right: 20px;
+
+    }
+
+    #services_nav .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #services_content .container {
+        padding: 0px 20px;
+        box-sizing: border-box;
+    }
 
 }
 
 
 
 @media screen and (max-width: 768px) {
-    .services_contact_banner {
-        max-width: 80vw;
-        margin-bottom: 0;
+    .blur_background::after {
+        background-image: none;
     }
 
     .services_contact_banner-actions {
@@ -607,6 +645,21 @@
     .services_contact_banner-actions-icons {
         justify-content: center;
     }
+    #services_nav .right_side {
+        max-height: unset;
+    }
+    #services_nav .nav_blocks {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #services_nav .divider {
+
+        max-width: unset;
+    }
+    #services_nav .nav_block {
+        text-align: center;
+    }
 
 
 }
@@ -615,6 +668,16 @@
 @media screen and (max-width: 480px) {
     .services_contact_banner {
         padding: 40px 20px;
+    }
+    #services_first_screen h1 {
+        font-size: 28px;
+        font-weight: 600;
+
+    }
+    #services_first_screen p {
+        font-size: 21px;
+        font-weight: 400;
+
     }
 
 }

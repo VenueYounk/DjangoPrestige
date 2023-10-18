@@ -10,17 +10,23 @@
 {% endblock %}
 
 {% block content %}
-  <label for="search" class="form_label">ПОИСК</label>
-  <input type="text" id="search" class="form_contol" placeholder="Введите название услуги" name="q" hx-get="{% url 'search-service' %}" hx-trigger="keyup changed delay:150ms" hx-target="#search-results" />
 
-  <div id='search-results'>
-     {% include "home/search_results.html" %}
+<canvas id="preloader_canv" width="500" height="500"></canvas>
 
-  </div>
-
-
+<script src="https://unpkg.com/@rive-app/canvas@2.1.0"></script>
+<script>
+  const r = new rive.Rive({
+    src: "{% static 'home/images/preloader/prestige.riv' %}",
+    canvas: document.getElementById("canvas"),
+    autoplay: true,
+    stateMachines: "State Machine 1",
+    onLoad: () => {
+      r.resizeDrawingSurfaceToCanvas();
+    },
+  });
+</script>
 {% endblock %}
 
 {% block extra_js %}
   <script src="https://unpkg.com/htmx.org@1.9.6" integrity="sha384-FhXw7b6AlE/jyjlZH5iHa/tTe9EpJ1Y55RjcgPbjeWMskSxZt1v9qkxLJWNJaGni" crossorigin="anonymous"></script>
-{% endblock %}
+  {% endblock %}

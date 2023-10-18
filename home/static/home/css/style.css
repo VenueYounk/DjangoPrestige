@@ -54,12 +54,19 @@ body {
   content: "";
   position: fixed;
   background-image: url(../images/first-screen/background_statue.png);
-  background-size: 87vh;
-  background-position: calc(0% + 484px) calc(100% + 348px);
+  background-size: 700px;
+  background-position: 40% 100%; 
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;
 }
+
+#preloader_logo {
+  width: 40vw;
+}
+#preloader_canvas {
+  width: 100%;
+} 
 
 /* styles.css */
 /* Стили для контейнера прелоадера */
@@ -75,9 +82,8 @@ body {
   height: 100%;
   background-color: var(--black);
   /* Полупрозрачный белый фон */
-  background-image: url(../images/preloader/logo.png), url(../images/preloader/women.png);
   background-repeat: no-repeat;
-  background-position: center, left bottom;
+  background-position:left bottom;
   background-size: 20vw;
   display: flex;
   justify-content: center;
@@ -142,7 +148,7 @@ header {
   justify-content: center;
   margin-bottom: 0px;
   width: 100%;
-  background: linear-gradient(to right, white 50%, transparent 50%);
+  background: linear-gradient(to right, var(--White) 50%, transparent 50%);
 
 }
 
@@ -165,7 +171,7 @@ header .container {
 }
 
 .header-left_side {
-  background-color: white;
+  background-color: var(--White);
   border-radius: 0px 0px 6px 0px;
   display: flex;
   box-sizing: border-box;
@@ -262,12 +268,14 @@ header .container {
 
 .header-call_button:hover {
   background-color: black;
-  color: white;
+  color: var(--White);
 }
 
 .header-call_button:hover path {
-  fill: white;
+  fill: var(--White);
 }
+
+
 
 
 
@@ -279,7 +287,7 @@ header .container {
   position: fixed;
   display: flex;
   justify-content: center;
-  background: linear-gradient(to right, white 50%, var(--black) 50%);
+  background: linear-gradient(to right, var(--White) 50%, var(--black) 50%);
   z-index: 1;
   transition: all 0.4s ease-out;
 }
@@ -431,7 +439,6 @@ header .container {
   box-sizing: border-box;
   width: 100%;
   max-width: 423px;
-  height: 100%;
   background-color: var(--black);
 }
 
@@ -465,6 +472,22 @@ header .container {
   letter-spacing: 0.64px;
 }
 
+#header_full_menu .header_search_result {
+  background-color: var(--white);
+  padding: 20px;
+
+}
+#header_full_menu .header_search_result a {
+  color: var(--Black);  
+  font-kerning: none;
+  /* Text for Buttons */
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.64px;
+}
 
 
 .header_full_menu_title-right {
@@ -528,7 +551,7 @@ header .container {
   height: 10px;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  background-color: white;
+  background-color: var(--White);
 }
 
 .hamburger {
@@ -578,7 +601,7 @@ header .container {
   justify-content: center;
   overflow: hidden;
   width: 100%;
-  height: 1000px;
+  height: 900px;
   align-items: flex-start;
 }
 
@@ -592,7 +615,9 @@ header .container {
 
 .contact_banner {
   box-sizing: border-box;
-  background-color: white;
+  background-color: rgba(254, 252, 253, 0.10);
+  backdrop-filter: blur(18.5px);
+  -webkit-backdrop-filter: blur(18.5px);
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -600,11 +625,12 @@ header .container {
   margin-bottom: 95px;
   margin-right: 20px;
   margin-top: 134px;
-  padding: 40px 50px;
+  padding: 40px 50px 50px 50px;
   max-width: 530px;
 }
 
 .contact_banner h3 {
+  color: var(--white);
   font-family: Literata;
   font-size: 21px;
   font-style: normal;
@@ -614,8 +640,10 @@ header .container {
 }
 
 .contact_banner input {
+  color: var(--dark_grey);
   border-radius: 2px;
-  border: 1px solid var(--black, #1B1C1E);
+  border: 1px solid var(--White);
+  background-color: transparent;
   font-family: Manrope;
   font-size: 16px;
   font-style: normal;
@@ -626,8 +654,13 @@ header .container {
   padding-left: 25px;
 }
 
+.contact_banner ::placeholder {
+  color: var(--dark_grey);
+}
+
+
 .first_screen-left-side {
-  color: white;
+  color: var(--White);
   margin-left: 33px;
   margin-top: 134px;
 }
@@ -716,6 +749,9 @@ header .container {
   border-color: transparent transparent #ffffff transparent;
 }
 
+.checkbox-label.first_screen {
+  color: var(--grey);
+}
 
 .contact_banner-actions {
   align-items: center;
@@ -792,13 +828,15 @@ header .container {
   display: flex;
   flex-direction: column;
   border-radius: 60px 60px 0px 0px;
-  /* background: rgba(27, 28, 30, 0.10); */
-  background-color: var(--black);
+  background: rgba(27, 28, 30, 0.20);
+  /* background-color: var(--black); */
   box-shadow: 0px -4px 20px 0px rgba(191, 205, 224, 0.10);
   backdrop-filter: blur(18.5px);
+  -webkit-backdrop-filter: blur(18.5px);
 }
 
 #team {
+  padding-top:  100px;
   display: flex;
   justify-content: center;
   z-index: 3;
@@ -806,7 +844,7 @@ header .container {
 
 .team_header-container {
   display: flex;
-  margin-bottom: 24px;
+  margin-bottom: 40px;
   max-width: 1366px;
   flex: auto;
 }
@@ -816,13 +854,13 @@ header .container {
   font-family: Literata;
   font-size: 38px;
   font-style: normal;
+  margin: 0;
   font-weight: 800;
   line-height: normal;
 }
 
 #team_cards {
   display: flex;
-  justify-content: center;
   z-index: 0;
   margin-bottom: 140px;
 
@@ -863,7 +901,7 @@ header .container {
 
 .card_employee-img img {
   max-width: 310px;
-  border-radius: 6px;
+  border-radius: 2px;
   width: 100%;
 }
 
@@ -900,7 +938,7 @@ header .container {
   height: 22px;
   z-index: 10;
   box-shadow: var(--white) 0 -10px 20px 5px;
-  background: white;
+  background: var(--White);
   align-items: center;
   font-family: Manrope;
   font-size: 16px;
@@ -1050,7 +1088,6 @@ header .container {
 
 .services-container {
   background: var(--black, #1B1D1E);
-  background-image: url(../images/services/column.png);
   background-repeat: no-repeat;
   background-position: top right;
   box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.20);
@@ -1069,7 +1106,6 @@ header .container {
   /* gap: 80px; */
   width: 100%;
   padding-left: 108px;
-  padding-right: 350px;
   margin-top: 50px;
   max-width: 1000px;
 }
@@ -1078,6 +1114,7 @@ header .container {
   align-items: center;
   align-self: stretch;
   display: flex;
+  margin-bottom: 20px;
   justify-content: space-between;
 }
 
@@ -1119,7 +1156,7 @@ header .container {
 
 .services-searcher_form {
   align-items: center;
-  background-color: white;
+  background-color: var(--white);
   display: flex;
   width: 100%;
 
@@ -1127,13 +1164,14 @@ header .container {
 
 .services-searcher_form input {
   background-image: url(../images/services/seach_icon.svg);
+
   background-repeat: no-repeat;
   background-size: 43px;
   background-position: 20px;
   border: none;
   padding-left: 90px;
   width: 100%;
-  height: 80px;
+  height: 60px;
   font-family: Manrope;
   font-size: 16px;
   font-style: normal;
@@ -1160,7 +1198,7 @@ header .container {
 }
 
 .search_icon {
-  background-color: white;
+  background-color: var(--White);
   box-sizing: border-box;
   padding: 0px 20px;
 }
@@ -1168,7 +1206,7 @@ header .container {
 .services-list {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  margin-top: 80px;
 }
 
 .services-list h2 {
@@ -1756,7 +1794,7 @@ header .container {
 }
 
 footer {
-  background-color: white;
+  background-color: var(--White);
   padding-top: 100px;
   display: flex;
   justify-content: center;
@@ -2004,7 +2042,7 @@ footer img {
   color: var(--Green, #5F7367);
   font-kerning: none;
   font-family: Manrope;
-  font-size: 10px;
+  font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -2152,18 +2190,27 @@ footer img {
     box-sizing: border-box;
     margin-right: 30px;
     margin-top: 70px;
-    padding: 40px 24px;
-    max-width: 470px;
   }
 
   .first_screen-left-side {
     margin-top: 70px;
   }
+  .first_screen-wrapper {
+    height: 760px;
+  }
+
+  .team_header-container {
+    padding-left: 20px;
+  }
 
 
   .scroll-container {
-    padding-left: 35px;
+    padding-left: 20px;
     padding-right: 35px;
+    gap: 20px;
+  }
+  #services {
+    padding-top: 0;
   }
 
   .services-container {
@@ -2210,6 +2257,7 @@ footer img {
   }
 
   .feedback_cards {
+    gap: 20px;
     padding: 20px 20px;
     justify-content: center;
 
@@ -2222,7 +2270,6 @@ footer img {
 
   #contacts {
     height: auto;
-    background: none;
   }
 
   .contacts_column {
@@ -2256,11 +2303,11 @@ footer img {
 @media screen and (max-width: 1000px) {
 
   header {
-    background: white;
+    background: var(--White);
   }
 
   .preloader {
-    background-size: 50vw, 30vw;
+    background-size:30vw;
   }
 
   .header-right_side {
@@ -2269,7 +2316,9 @@ footer img {
 
   .header-left_side {
     width: 100%;
+    box-sizing: unset;
   }
+  
 
   .reviev_block {
     justify-content: center;
@@ -2285,7 +2334,7 @@ footer img {
   }
 
   .hamburger.active .bar {
-    background-color: white;
+    background-color: var(--black);
   }
 
   .header-left_side {
@@ -2315,9 +2364,7 @@ footer img {
 
 
   .card {
-    flex-direction: column;
-    width: 66vw;
-    max-width: 465px;
+    max-width: 643px;
 
     padding: 30px 30px;
   }
@@ -2325,6 +2372,8 @@ footer img {
 
   .card_employee-img img {
     max-width: none;
+    height: 100%;
+
   }
 
   .services-list-container li {
@@ -2335,9 +2384,23 @@ footer img {
     background-image: none;
   }
 
+
+  .services-container {
+    margin-bottom: 0px;
+  }
+
   #about_us {
     background-size: 45%, 45%;
   }
+  .about_us-info {
+    gap: 60px;
+  }
+
+  .contacts_wrapper {
+    flex-direction: column;
+    gap: 40px;
+  }
+
 
 
   footer ul {
@@ -2360,19 +2423,32 @@ footer img {
 }
 
 @media screen and (max-width: 768px) {
-
-  #header_full_menu .container {
-    flex-direction: column-reverse;
-    overflow-y: scroll;
+  #preloader_logo {
+    width: 70vw;
   }
+  #header_full_menu {
+    background: var(--White);
+  }
+  #header_full_menu .container {
+    flex-direction: column;
+    overflow-y: auto;
+  }
+  #header_full_menu .container .left_side {
+    order: 2;
+    height: unset;
+  }
+  #header_full_menu .container .right_side {
+    order: 1;
+  }
+  
 
-  .header_category {
+  .grid_element {
     text-align: left;
     justify-content: flex-start;
   }
 
   #header_full_menu .left_side {
-    padding-top: 20px;
+    padding-top: 40px;
   }
 
   .big_logo {
@@ -2394,7 +2470,9 @@ footer img {
 
   }
 
-
+  .first_screen-wrapper {
+    height: unset;
+  }
   #first_screen h2 {
     font-family: Literata;
     font-size: 28px;
@@ -2430,7 +2508,6 @@ footer img {
 
   .contact_banner {
     max-width: 80vw;
-    margin-bottom: 0;
   }
 
   .contact_banner-actions {
@@ -2447,7 +2524,11 @@ footer img {
   }
 
   .card {
+    flex-direction: column;
+
     max-width: 310px;
+    width: 66vw;
+    background-size: 100%;
   }
 
   #services {
@@ -2497,7 +2578,9 @@ footer img {
     justify-content: center;
   }
 
-
+  #contacts {
+    padding-top: 0;
+  }
 
   .contacts_feedback {
     width: inherit;
@@ -2526,7 +2609,9 @@ footer img {
     margin-bottom: 30px;
 
   }
-
+  #contacts .container {
+    padding: 40px 20px;
+  }
 
 
   .contacts_feedback-row {
@@ -2586,6 +2671,8 @@ footer img {
 
 @media screen and (max-width: 480px) {
 
+
+
   .vetka img {
     height: 150px;
   }
@@ -2608,6 +2695,11 @@ footer img {
     padding-left: 20px;
   }
 
+
+  #team_block {
+    border-radius: 30px 30px 0px 0px;
+  }
+
   .reviev_block {
     justify-content: unset;
     align-items: unset;
@@ -2617,6 +2709,9 @@ footer img {
     font-size: 28px;
     font-weight: 600;
   }
+
+
+
 
   #about_us {
     background-size: 80vw;

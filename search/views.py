@@ -55,9 +55,16 @@ def search_lawyer_and_services(request):
     if q != "":
         lawyers = Lawyer.objects.live().filter(title__icontains=q)
         services = ServicesPage.objects.live().filter(title__icontains=q)
-        result = lawyers.union(services).order_by("title")
+        result = list(set(lawyers) | set(services))[:10]
+        result = ["Нет результатов"] if len(result) == 0 else result
         return TemplateResponse(
             request,
             "home/modules/lawyer_and_services_search_results.html",
             {"pages": result},
+        )
+    else:
+        return TemplateResponse(
+            request,
+            "home/modules/lawyer_and_services_search_results.html",
+            {"pages": None},
         )

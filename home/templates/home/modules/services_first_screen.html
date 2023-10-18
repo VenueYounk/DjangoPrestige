@@ -11,11 +11,15 @@
               <button class="services_contact_banner-button send_info popup_start" type="submit">Перезвонить мне</button>
               <!-- <a href="#" class="contact_banner-button">Перезвонить мне</a> -->
               <div class="services_contact_banner-actions-icons">
-                <a href="{{contact_info.telegram_link}}" target="_blank"><img src="{% static 'home/images/footer/icomoon-free_telegram.svg' %}" alt=""></a>
-                <a href="{{contact_info.whatsapp_link}}" target="_blank"><img src="{% static 'home/images/footer/icomoon-free_whatsapp.svg' %}" alt=""></a>
-                <a href="{{contact_info.vk_link}}" target="_blank"><img src="{% static 'home/images/footer/vk_icon.svg' %}" alt=""></a>
-  
+                <a href="{{contact_info.telegram_link}}" target="_blank"><img src="{% static 'home/images/first-screen/telegram_icon.svg' %}" alt=""></a>
+                <a href="{{contact_info.whatsapp_link}}" target="_blank"><img src="{% static 'home/images/first-screen/whatsapp_icon.svg' %}" alt=""></a>
+                <a href="{{contact_info.vk_link}}" target="_blank"><img src="{% static 'home/images/first-screen/black_vk_icon.svg' %}" alt=""></a>
+                
               </div>
+            </div>
+            <div class="checkbox-container">
+              <input class="custom-checkbox" type="checkbox" id="consent" name="consent">
+              <label class="checkbox-label first_screen" for="consent">Согласие на обработку ваших данных</label>
             </div>
     </div>
 

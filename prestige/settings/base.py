@@ -84,13 +84,22 @@ WSGI_APPLICATION = "prestige.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+#     }
+# }
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "prestige",  # Имя вашей базы данных
+        "USER": "postgres",  # Имя пользователя PostgreSQL
+        "PASSWORD": "kallemort1",  # Пароль пользователя (если установлен)
+        "HOST": "localhost",  # Хост PostgreSQL
+        "PORT": "",  # Порт PostgreSQL (по умолчанию 5432)
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
