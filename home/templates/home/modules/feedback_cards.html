@@ -1,0 +1,59 @@
+{%load static snippets_tags%}
+{% get_contact_info as contact_info %}
+<section id="feedback_block">
+
+    <div class="feedback_container">
+      <h1>Консультацию можно получить</h1>
+      <div class="feedback_cards">
+        <div class="feedback_card">
+          <h2>По телефону</h2>
+          <h3>Мы сразу же вам перезвоним</h3>
+          <input type="tel" name="phone_number" class="tel" name="phone_number" placeholder="Ваш номер">
+          <button class="feedback_button send_info popup_start" type="submit">Перезвонить мне</button>
+          <h3>или свяжитесь с нами по телефону</h3>
+          <h2>{{ contact_info.main_phone_number }}</h2>
+          <h2> {{ contact_info.second_phone_number }} </h2>
+        </div>
+        <div class="feedback_card">
+          <h2>Онлайн</h2>
+          <h3>Консультация в мессенджере</h3>
+          <div>
+            <div class="feedback_card-social-block">
+  
+              <div class="feedback_card-social">
+                <img src="{% static 'home/images/first-screen/icomoon-free_telegram.svg' %}" alt="telegram">
+                <a href="{{contact_info.telegram_link}}" target="_blank">Написать в Telegram</a>
+              </div>
+              <div class="feedback_card-social">
+                <img src="{% static 'home/images/first-screen/icomoon-free_whatsapp.svg' %}" alt="whatsapp">
+                <a href="{{contact_info.whatsapp_link}}" target="_blank">Написать в WhatsApp</a>
+              </div>
+              <div class="feedback_card-social">
+                <img src="{% static 'home/images/first-screen/vk_icon.svg' %}" alt="vk">
+                <a href="{{contact_info.vk_link}}" target="_blank">Написать в Вконтакте</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="feedback_card">
+          <h2>В офисе</h2>
+          <h3>В Санкт-Петербурге</h3>
+          <p>Лучший вариант для полного понимания специалистом вашего вопроса</p>
+          <h3>Посмотрите, как нас <a style="color: var(--black, #1B1C1E);" href="#contacts">найти</a></h3>
+
+
+
+        </div>
+        <div class="feedback_card">
+          <h2>Выезд адвоката</h2>
+          <h3>При необходимости выедем на место</h3>
+          <br>
+          <input type="tel" name="phone_number" class="tel" name="phone_number" placeholder="Ваш номер">
+          <input type="text" name="name" id=text name="name" placeholder="Ваше имя">
+          <button class="feedback_button send_info popup_start" type="submit">Записаться</button>
+        
+        </div>
+      </div>
+    </div>
+
+  </section>

@@ -1,0 +1,199 @@
+/* fix header */
+.header-left_side {
+    border-radius: 0;
+}
+
+
+
+
+#lawyer {
+    width: 100%;
+    background-color: var(--white);
+    display: flex;
+    justify-content: center;
+}
+
+#lawyer .wrapper {
+    padding-top: 70px;
+    max-width: 1366px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#lawyer .lawyer_card {
+    display: flex;
+    padding: 0px 20px;
+    gap: 60px;
+}
+
+#lawyer .lawyer_card img {
+    border-radius: 6px;
+}
+
+#lawyer .lawyer_about {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+#lawyer .lawyer_about h1,
+h2 {
+    padding: 0;
+    margin: 0;
+}
+
+#lawyer .lawyer_about h1 {
+    margin-bottom: 8px;
+
+    color: var(--Black, #1B1C1E);
+    /* H1 */
+    font-family: Literata;
+    font-size: 38px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+
+}
+
+#lawyer .lawyer_about p {
+    margin: 0;
+    padding: 0;
+    color: var(--Dark-blue, #232B4B);
+    font-kerning: none;
+    font-family: Manrope;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.72px;
+}
+
+#lawyer .lawyer_about h2 {
+    margin-bottom: 10px;
+    color: var(--Black, #1B1C1E);
+    /* H2 */
+    font-family: Literata;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+#lawyer .lawyer_about button {
+    margin: 20px 0px;
+    max-width: 250px;
+    width: 100%;
+}
+
+#lawyer .reg_num {
+    max-width: 710px;
+
+    border-radius: 6px;
+    border: 2px solid var(--Dark-blue, #232B4B);
+    padding: 20px 40px;
+    background-image: url(../images/lawyer/number.svg);
+    background-repeat: no-repeat;
+    background-position: 95% 50%;
+    background-size: 30px;
+
+}
+
+
+#lawyer .tags {
+    padding: 0;
+    display: flex;
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: 20px;
+    align-self: stretch;
+    flex-wrap: wrap;
+}
+
+#lawyer .tag {
+    border-radius: 39px;
+    background: var(--Dark-blue, #232B4B);
+    padding: 10px 24px;
+
+    /* text */
+    color: var(--White, #FEFCFD);
+    text-align: center;
+    font-kerning: none;
+    font-family: Manrope;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.72px;
+}
+
+
+#lawyer .lawyer_title {
+    padding: 0 20px;
+    box-sizing: border-box;
+    color: var(--Black, #1B1C1E);
+    /* H2 */
+    font-family: Literata;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-bottom: 24px;
+    width: 100%;
+    border-bottom: 1px solid var(--Gold, #DFBD74);
+}
+
+#lawyer .block-text {
+    padding: 0 20px;
+    color: var(--Black, #1B1C1E);
+    font-kerning: none;
+    font-family: Manrope;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px;
+    /* 150% */
+    letter-spacing: 0.8px;
+    margin-bottom: 140px;
+}
+
+#lawyer .block-text h2 {
+    margin: 25px 0px;
+}
+
+#lawyer .block-text p {
+    margin: 0;
+}
+
+
+
+@media screen and (max-width: 1000px) {
+
+    #lawyer .lawyer_card {
+        flex-direction: column;
+    }
+
+    #lawyer .lawyer_image  {
+        width: 100%;
+        height: auto;
+    }
+    #lawyer .lawyer_image img  {
+        width: 100%;
+        height: auto;
+        max-width: 530px;
+        max-height: 705px;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    #lawyer .lawyer_about h1 {
+        font-size: 28px;
+        font-weight: 600;
+    }
+
+    #lawyer .lawyer_image {
+        width: 80wv;
+        height: auto
+    
+}

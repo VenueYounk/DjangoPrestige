@@ -1,0 +1,42 @@
+{% load header_filter %}
+
+
+<section id="services_nav">
+    <div class="container">
+        <div class="left_side">
+            <p>Содержание</p>
+            <ul>
+            {% for h2 in page.content|hsplit %}
+                <li><a class="" href="#{{ h2.id }}">{{ h2.value }}</a></li>
+            {% endfor %}
+            </ul>
+        </div>
+        <div class="right_side">
+            <div class="service_feedback_block">
+                <p class="service_feedback_big-header">Отзывы о нашей работе</p>
+                <p class="service_feedback_small-header">Мы собрали для вас все ссылки в одном месте.</p>
+                <button>Читать</button>
+            </div>
+            <div class="service_nav_panel">
+                <p>Навигация по странице</p>
+                <div class="nav_blocks">
+                    <div class="nav_block"><a href="#">Цены</a></div>
+                    <div class="divider"></div>
+                    <div class="nav_block"><a href="#team">Адвокаты</a></div>
+                    <div class="divider"></div>
+                    <div class="nav_block"><a href="#contacts">Связаться</a></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section id="services_content">
+    <div class="container">
+        <div class="content_wrapper">
+            <h1>{{page.title}}</h1>
+            {{page.content}}
+        </div>
+    </div>
+</section>

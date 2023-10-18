@@ -1,0 +1,40 @@
+/* Стили для скроллбара в веб-браузерах на базе WebKit */
+
+
+#header_full_menu ::-webkit-scrollbar-track {
+    background: var(--white)
+
+}
+
+#header_full_menu ::-webkit-scrollbar-thumb {
+    background: var(--grey); 
+    border-radius: 15px;
+    border: var(--grey) solid 100vw;
+}
+
+#header_full_menu ::-webkit-scrollbar {
+    width: 0.5vw;
+}
+
+
+::-webkit-scrollbar {
+    width: 1vw;
+}
+
+::-webkit-scrollbar-track {
+    background: #1B1C1E;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #FEFCFD;
+
+    /* border-radius: 15px; */
+    border: #1B1C1E solid 100vw;
+    box-shadow: none;
+}
+
+/* Стили для скроллбара в Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #FEFCFD #1B1C1E;
+}

@@ -1,0 +1,46 @@
+{% load static %}
+{% load wagtailimages_tags %}
+{% load team_tags %}
+{% get_team page as team %}
+
+
+<section id="team_block">
+<section id="team">
+    <div class="team_header-container">
+      <h1>{{team.label}}</h1>
+    </div>
+
+  </section>
+
+
+  <section id="team_cards"> 
+    <div class="scroll-container">
+
+      {% for lawyer in team.lawyers %}
+      <div class="card">
+        <div class="card_employee-img">
+          {% image lawyer.lawyer_image fill-310x413%}
+        </div>
+        <div class="card_employee-about">
+          <div class="card_employee-text">
+            <h2>{{lawyer.title}}</h2>
+            <h3>{{lawyer.role}}</h3>
+            <p>{{lawyer.short_description | safe}}</p>
+          </div>
+          <div class="card_employee-accordion">
+            Развернуть
+            <div class="accordion-pointer">
+              <img src="{% static 'home/images/team/pointer.svg' %}" alt="">
+            </div>
+          </div>
+          <div class="card_employee-buttons">
+            <button onclick="window.location.href='{{lawyer.url}}'" class="card_employee-button-info">Подробнее</button>
+            <button class="card_employee-button-request">Записаться</button>
+          </div>
+        </div>
+
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+</section>

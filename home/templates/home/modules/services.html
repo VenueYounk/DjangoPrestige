@@ -1,0 +1,39 @@
+<section id="services">
+    <div class="services-container">
+      <div class="services-block">
+        <div class="services-header">
+          <h1>Наши услуги</h1>
+          <!-- <button>Смотреть все</button> -->
+        </div>
+        <div class="services-searcher">
+          <div class="services-searcher_form">
+            {% comment %} <input type="text" placeholder="Введите название услуги"> {% endcomment %}
+            <input type="text" id="search" placeholder="Введите название услуги" name="q" hx-get="{% url 'search-service' %}" hx-trigger="keyup changed delay:150ms" hx-target="#services_list" />
+
+          </div>
+        </div>
+        <div class="services-list">
+          <h2>Популярные запросы</h2>
+          <div class="services-list-container">
+            <ul id="services_list">
+              {% include "home/modules/services_search_results.html" %}
+
+               <li><a class="popup_start" href="#services">Консультации по гражданским делам</a></li>
+              <li><a class="popup_start" href="#services">Поддержка сделок с недвижимостью</a></li>
+              <li><a class="popup_start" href="#services">Защита интересов в арбитраже</a></li>
+              <li><a class="popup_start" href="#services">Услуги по семейным спорам</a></li>
+              <li><a class="popup_start" href="#services">Защита прав потребителей</a></li>
+              <li><a class="popup_start" href="#services">Помощь при ДТП и взыскание ущерба</a></li>
+              <li><a class="popup_start" href="#services">Уголовная защита</a></li>
+              <li><a class="popup_start" href="#services">Поддержка бизнеса и корпоративное право</a></li>
+              <li><a class="popup_start" href="#services">Наследственные споры и завещания</a></li>
+              <li><a class="popup_start" href="#services">Защита авторских прав и интеллектуальной собственности</a></li>
+              <li><a class="popup_start" href="#services">Миграционные услуги и вопросы гражданства</a></li>
+              <li><a class="popup_start" href="#services">Защита трудовых прав и решение трудовых споров</a></li> 
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>

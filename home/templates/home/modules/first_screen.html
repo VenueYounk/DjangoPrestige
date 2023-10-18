@@ -1,0 +1,43 @@
+{%load static snippets_tags%}
+{% get_contact_info as contact_info %}
+<section id='first_screen'>
+    <div class="first_screen-wrapper">
+      <div class="container">
+        <div class="first_screen-left-side">
+          <h2>Команда профессионалов высочайшего класса.</h2>
+          <p>На связи 24/7</p>
+          <br>
+          <div class="reviev_block">
+          <a id="reviev_popup_button" class="first_screen-review">Отзывы о нашей работе</a>
+          <div id="reviev_popup" class="review_popup">
+            <a href="https://spb.zoon.ru/p-lawyer/zinaida_ivanovna_kultanova/?utm_source=share_short_link" target="_blank">spb.zoon.ru</a>
+            <a href="https://yandex.ru/maps/org/advokat_kultanova_z_i_/124700137744/reviews/?ll=30.318734%2C59.889882&z=15" target="_blank">yandex.ru</a>
+            <a href="https://2gis.ru/spb/firm/70000001019771515/tab/reviews" target="_blank">2gis.ru</a>
+          </div>  
+        </div>
+        </div>
+        <div class="contact_banner">
+          <h3>Получите консультацию прямо сейчас. Это бесплатно!</h3>
+          <input type="tel" name="phone_number" class="tel" name="phone_number" placeholder="Ваш номер">
+          
+          <div class="contact_banner-actions">
+            <button class="contact_banner-button send_info popup_start" type="submit">Перезвонить мне</button>
+            <!-- <a href="#" class="contact_banner-button">Перезвонить мне</a> -->
+            <div class="contact_banner-actions-icons">
+              <a href="{{contact_info.telegram_link}}" target="_blank"><img src="{% static 'home/images/first-screen/telegram_icon.svg' %}" alt=""></a>
+              <a href="{{contact_info.whatsapp_link}}" target="_blank"><img src="{% static 'home/images/first-screen/whatsapp_icon.svg' %}" alt=""></a>
+              <a href="{{contact_info.vk_link}}" target="_blank"><img src="{% static 'home/images/first-screen/black_vk_icon.svg' %}" alt=""></a>
+              
+            </div>
+          </div>
+          <div class="checkbox-container">
+            <input class="custom-checkbox" type="checkbox" id="consent" name="consent">
+            <label class="checkbox-label first_screen" for="consent">Согласие на обработку ваших данных</label>
+          </div>
+          
+        </div>
+      </div>
+
+    </div>
+
+  </section>

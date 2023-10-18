@@ -1,0 +1,33 @@
+{%load static snippets_tags%}
+{% get_contact_info as contact_info %}
+<div class="blur"></div>
+
+<div id="feedback_start" class="feedback_popup">
+  <div id="start_conversation" class="popup_container">
+    <div class="popup_content ">
+      <p class="popup_header">Оставьте свои данные, мы сразу же вам перезвоним.</p>
+      <form id="my_form">
+        <input class="phone_number tel" type="tel" placeholder="Ваш номер" name="phone_number">
+        <input class="name" type="text" placeholder="Ваше имя" name="name">
+        <div class="checkbox-container">
+          <input class="custom-checkbox" type="checkbox" id="consent" name="consent">
+          <label class="checkbox-label" for="consent">Согласие на обработку ваших данных</label>
+        </div>
+        <!-- Другие поля формы и кнопка отправки данных -->
+        <button type="submit">Отправить</button>
+        <div class="social_media">
+          <!-- Не забудь добавить точки -->
+          <a href="{{contact_info.telegram_link}}" target="_blank"><img src='{% static "home/images/footer/icomoon-free_telegram.svg" %}' alt=""></a>
+          <a href="{{contact_info.whatsapp_link}}" target="_blank"><img src='{% static "home/images/footer/icomoon-free_whatsapp.svg" %}' alt=""></a>
+          <a href="{{contact_info.vk_link}}" target="_blank"><img src='{% static "home/images/footer/vk_icon.svg" %}' alt=""></a>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div id="end_conversation" class="popup_container ">
+    <div class="popup_content pop_end_content">
+      <p class="popup_big_header">Запрос принят<span style="color: #DFBD74;">.</span></p>
+      <p class="popup_header" style="max-width: 356px;text-align: center;">Мы свяжемся c вами в течении 5 минут</p>
+    </div>
+  </div>
+</div>

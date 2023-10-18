@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body_class %}
+  test_zone
+{% endblock %}
+
+{% block extra_css %}
+
+{% endblock %}
+
+{% block content %}
+
+<canvas id="preloader_canv" width="500" height="500"></canvas>
+
+<script src="https://unpkg.com/@rive-app/canvas@2.1.0"></script>
+<script>
+  const r = new rive.Rive({
+    src: "{% static 'home/images/preloader/prestige.riv' %}",
+    canvas: document.getElementById("canvas"),
+    autoplay: true,
+    stateMachines: "State Machine 1",
+    onLoad: () => {
+      r.resizeDrawingSurfaceToCanvas();
+    },
+  });
+</script>
+{% endblock %}
+
+{% block extra_js %}
+  <script src="https://unpkg.com/htmx.org@1.9.6" integrity="sha384-FhXw7b6AlE/jyjlZH5iHa/tTe9EpJ1Y55RjcgPbjeWMskSxZt1v9qkxLJWNJaGni" crossorigin="anonymous"></script>
+  {% endblock %}
