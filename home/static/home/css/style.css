@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: "Literata";
-  src: url(../fonts/Literata/Literata-VariableFont_opsz\,wght.ttf);
+  src: url(../fonts/Literata/Literata-VariableFont_opsz,wght.ttf);
 }
 
 button {
@@ -2426,6 +2426,9 @@ footer img {
   #preloader_logo {
     width: 70vw;
   }
+  .blur_background::after {
+    background: none;
+  }
   #header_full_menu {
     background: var(--White);
   }
@@ -2438,6 +2441,7 @@ footer img {
     height: unset;
   }
   #header_full_menu .container .right_side {
+    max-width: unset;
     order: 1;
   }
   

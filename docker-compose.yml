@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    networks:
+      - wagtail_network
+
+  db:
+    image: postgres
+    environment:
+      POSTGRES_DB: prestige
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: kallemort1
+    networks:
+      - wagtail_network
+
+networks:
+  wagtail_network:

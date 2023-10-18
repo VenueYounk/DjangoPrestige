@@ -17,7 +17,6 @@ const r = new rive.Rive({
 
 
 function sayMeTheTruth(){ 
-    console.log('Я твою маму андефайндед',logoProgress)
     logoProgress.value = 0
 }
 
@@ -46,11 +45,19 @@ function increaseProgressBar() {
 }
 
 
-
+function easeInOutCubic(t) {
+    if (t < 0.5) {
+        return 4 * t * t * t;
+    } else {
+        const factor = ((2 * t) - 2);
+        return 0.5 * factor * factor * factor + 1;
+    }
+}
 
 function setProgressBar() {
     for (let index = 0; index <= 100; index++) {
-        setTimeout(increaseProgressBar, index * 10)
+        const interval = easeInOutCubic(index / 100) * 1000; 
+        setTimeout(increaseProgressBar, interval);
         
         
     }

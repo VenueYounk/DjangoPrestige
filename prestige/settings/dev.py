@@ -12,6 +12,16 @@ ALLOWED_HOSTS = ["*"]
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "prestige",  # Имя вашей базы данных
+        "USER": "postgres",  # Имя пользователя PostgreSQL
+        "PASSWORD": "kallemort1",  # Пароль пользователя (если установлен)
+        "HOST": "localhost",  # Хост PostgreSQL
+        "PORT": "",  # Порт PostgreSQL (по умолчанию 5432)
+    }
+}
 try:
     from .local import *
 except ImportError:

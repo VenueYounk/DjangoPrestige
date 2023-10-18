@@ -95,9 +95,9 @@ DATABASES = {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "prestige",  # Имя вашей базы данных
         "USER": "postgres",  # Имя пользователя PostgreSQL
-        "PASSWORD": "kallemort1",  # Пароль пользователя (если установлен)
-        "HOST": "localhost",  # Хост PostgreSQL
-        "PORT": "",  # Порт PostgreSQL (по умолчанию 5432)
+        "PASSWORD": "kallemort1",  # Пароль пользователя
+        "HOST": "db",  # Имя сервиса контейнера базы данных в Docker Compose
+        "PORT": 5432,  # Порт PostgreSQL (по умолчанию 5432)
     }
 }
 
